@@ -55,9 +55,17 @@ Route::get('main_site', function()
     //     // \Illuminate\Support\Facades\Log::info('foo');
     //     logger($query->sql, $query->bindings);
     // });
+    
+    $posts = Post2::latest();
+    if(request('search'))
+    {
+        $posts
+            ->where('title', 'like', '%' . request('search') . '%')
+            ->orWhere('body', 'like', '%' . request('search') .'%');
+    }
 
     return view('main_site', [ 
-        'main_site'=> Post2::latest()->get(), 
+        'main_site'=> $posts->get(), 
         'categories' => Category::all() 
     ]);      
     // posts collection is being rendered to the view-er
@@ -72,7 +80,7 @@ Route::get('main_site', function()
     
 
     // return view('main_site', ['main_site'=>Post::all()]); // read posts dir - grab its files - get the content of each of the files  
-});
+})->name('home');
 
 Route::get('posts/{post:slug}', function(Post2 $post) // route for a single post - id is captured as a WILDCARD; then passed to function
 {   
@@ -124,7 +132,7 @@ Route::get('categories/{category:slug}', function(Category $category)
         'currentCategory' => $category,
         'categories' => Category::all()     
     ]);
-});
+})->name('category');
 
 
 Route::get('authors/{author:username}', function(User $author){
