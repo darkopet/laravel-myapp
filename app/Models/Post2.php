@@ -19,6 +19,18 @@ class Post2 extends Model
     // {
     //     return 'slug'; 
     // }
+    public function scopeFilter($query, array $filters) // Class::newQuery()->scopeAFTERPART() 
+    {                          //queryBuilder
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
+            $query
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%'));
+            $query->when($filters['category'] ?? false, fn($query, $category) =>
+                 $query->whereHas('category', fn ($query) =>
+                        $query->where('slug', $category)
+                                )
+                        );
+    }
 
     public function category()
     {
