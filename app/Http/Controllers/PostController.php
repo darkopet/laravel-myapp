@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post2;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return view('main_site.index', [
-            'main_site' => Post2::latest()->filter(request(['search','category']))->get()
+        return view('posts.index', [
+            'posts' => Post2::latest()->firstWhere(request(['search','category', 'author']))->get()
         ]);
     }
 
-
+    
     public function show(Post2 $post)
     {
-        return view('post.show', [
+        return view('posts.show', [
             'post' => $post
         ]);
     }

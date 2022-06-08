@@ -1,4 +1,4 @@
-<?php // foreach ($main_site as $post) : ?>          <!-- @foreach ($posts as $post) -->
+<?php // foreach ($posts as $post) : ?>          <!-- @foreach ($posts as $post) -->
             <article>
                 <h5><?= $post->excerpt; ?></h5>
                 <div> {{ $post->excerpt }} </div>
@@ -17,7 +17,7 @@
 
 
 <!--  -->
-<!-- @foreach ($main_site as $post) 
+<!-- @foreach ($mposts as $post) 
                 <article>
                     <div> {{ $post->excerpt }} </div>
                     <div> {{ $post->date }}</div>
@@ -39,7 +39,7 @@
     @endsection    
 
     @section('content')
-        @foreach ($main_site as $post) 
+        @foreach ($posts as $post) 
             <article>
                 <div> {{ $post->excerpt }} </div>
                 <div> {{ $post->date }} </div>
