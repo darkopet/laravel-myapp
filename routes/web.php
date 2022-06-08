@@ -40,7 +40,6 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('authors/{author:username}', function(User $author){
     //dd($author);
     return view('main_site', [ 
-        'main_site' => $author->posts,
-        'categories' => Category::all() 
+        'main_site' => $author->posts
     ]); 
 });
