@@ -3,8 +3,10 @@
         Latest <span class="text-blue-500">Laravel From Scratch</span> News
     </h1>
 
+    
     <h2 class="inline-flex mt-2">By Lary Laracore <img src="/images/lary-head.svg" alt="Head of Lary the mascot">
     </h2>
+
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
         <!--  Category -->
@@ -20,16 +22,20 @@
                     </button>
                 </x-slot>
 
-                <x-dropdown-item href="/main_site" :active="request()->routeIs('home')">All</x-dropdown-item>
+                <x-dropdown-item href="/main_site" 
+                                 :active="request()->routeIs('home')">
+                                     All
+                </x-dropdown-item>
 
                 @foreach ($categories as $category)
                     <x-dropdown-item href="/categories/{{ $category->slug }}" 
-                                     :active='request()->is("categories/{$category->slug}")'>
+                                     :active='request()->is("categories/.{$category->slug}")'>
                                         {{ ucwords($category->name) }}
                     </x-dropdown-item>
                 @endforeach
             </x-dropdown>
         </div>
+
 
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
             <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
@@ -48,15 +54,16 @@
             </svg>
         </div>
 
+
         <!-- Search -->
-        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
-            <form method="GET" action="#">
-                <input type="text" 
-                       name="search" 
-                       placeholder="Find something" 
-                       class="bg-transparent placeholder-black font-semibold text-sm"
-                       value="{{ request('search') }}">
-            </form>
-        </div>
+            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+                <form method="GET" action="#">
+                    <input type="text" 
+                        name="search" 
+                        placeholder="Find something" 
+                        class="bg-transparent placeholder-black font-semibold text-sm"
+                        value="{{ request('search') }}">
+                </form>
+            </div>
     </div>
 </header>
