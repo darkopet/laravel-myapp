@@ -21,7 +21,7 @@ class PostController extends Controller
         return view('post', ['post'=> $post]);  
     }
 
-    protected function getPost()
+    protected function getPosts()
     {
         $posts = Post2::latest();
         if(request('search'))
