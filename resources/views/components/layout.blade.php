@@ -16,7 +16,7 @@
             </div>
 
             <div class="mt-8 md:mt-0">
-                <a href="/main_site" class="text-xs font-bold uppercase">Home Page</a>
+                <a href="/main_site" class="text-xs font-bold uppercase">Back To Home Page</a>
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates

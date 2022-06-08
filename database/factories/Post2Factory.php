@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use Database\Factories\UserFactory;
+use App\Models\Post2;
 use App\Models\User;
 use App\Models\Category;
-use App\Models\Post2;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post2Factory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -23,7 +25,7 @@ class Post2Factory extends Factory
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
-            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>'
+            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>'
         ];
     }
 }

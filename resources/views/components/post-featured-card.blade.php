@@ -11,20 +11,20 @@
                             <div class="space-x-2">
                                 <a href="/categories/{{ $post->category->slug }}"
                                    class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                                   style="font-size: 10px">{{ $post->category->name }}</a>
+                                   style="font-size: 10px">{!! $post->category->name !!}</a>
 
                             </div>
 
                             <div class="mt-4">
                                 <h1 class="text-3xl">
                                     <a href="/posts/{{ $post->slug }}"> 
-                                        {{ $post->title }}
+                                        {!! $post->title !!}
                                     </a>
                                 </h1>
 
                                 <span class="mt-2 block text-gray-400 text-xs">
-                                        Published <time>{{ $post->created_at->diffForHumans() }}</time>
-                                    </span>
+                                        Published <time>{!! $post->created_at->diffForHumans() !!}</time>
+                                </span>
                             </div>
                         </header>
 
