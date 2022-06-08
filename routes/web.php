@@ -3,6 +3,7 @@
 use App\Models\Post2;
 use App\Models\User;
 use App\Models\Category;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
@@ -22,28 +23,8 @@ Route::get('/', function(){
     return view('welcome'); 
 });
 
-
-Route::get('main_site', function()
-{                 
-    $posts = Post2::latest();
-    if(request('search'))
-    {
-        $posts
-            ->where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') .'%');
-    }
-
-    return view('main_site', [ 
-        'main_site'=> $posts->get(), 
-        'categories' => Category::all() 
-    ]);      
-})->name('home');
-
-
-Route::get('posts/{post:slug}', function(Post2 $post)
-  {
-    return view('post', ['post'=> $post]);  
-  });
+Route::get('main_site', [PostController::class, 'index'])->name('home');
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 
 Route::get('categories/{category:slug}', function(Category $category)
