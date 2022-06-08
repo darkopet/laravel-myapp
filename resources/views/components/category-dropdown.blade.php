@@ -8,10 +8,12 @@
         </button>
     </x-slot>
 
+
     <x-dropdown-item href="/main_site" :active="request()->routeIs('home')">
         All
     </x-dropdown-item>
 
+    
     @foreach ($categories as $category)
     <x-dropdown-item href="/main_site?category={{ $category->slug }}" :active='request()->is("categories/.{$category->slug}")'>
         {{ ucwords($category->name) }}
