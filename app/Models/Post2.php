@@ -15,6 +15,7 @@ class Post2 extends Model
 
     protected $with = ['category', 'author'];
     
+    
     // public function getRouteKeyName()
     // {
     //     return 'slug'; 

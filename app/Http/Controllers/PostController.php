@@ -24,6 +24,7 @@ class PostController extends Controller
     protected function getPosts()
     {
         $posts = Post2::latest();
+        
         if(request('search'))
         {
             $posts
