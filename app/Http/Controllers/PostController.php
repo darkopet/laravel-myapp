@@ -13,7 +13,6 @@ class PostController extends Controller
         ]);
     }
 
-    
     public function show(Post2 $post)
     {
         return view('posts.show', [
