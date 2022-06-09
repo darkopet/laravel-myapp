@@ -7,7 +7,7 @@
 
         <div class="mt-8 flex flex-col justify-between">
             <header>
-                
+
                 <div class="space-x-2">
                     <x-category-button :category="$post->category" />
                 </div>
@@ -15,7 +15,7 @@
                 <div class="mt-4">
                     <h1 class="text-3xl clamp one-line">
                         <a href="/posts/{{ $post->slug }}">
-                            {!! $post->title !!}
+                            {{ $post->title }}
                         </a>
                     </h1>
 
@@ -41,7 +41,8 @@
                 </div>
 
                 <div>
-                    <a href="/posts/{{ $post->slug }}" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
+                    <a href="/posts/{{ $post['slug'] }}" 
+                       class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
                         Read More
                     </a>
                 </div>
