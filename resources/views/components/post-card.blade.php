@@ -7,6 +7,7 @@
 
         <div class="mt-8 flex flex-col justify-between">
             <header>
+                
                 <div class="space-x-2">
                     <x-category-button :category="$post->category" />
                 </div>
@@ -22,6 +23,7 @@
                         Published <time>{{ $post->created_at->diffForHumans() }}</time>
                     </span>
                 </div>
+
             </header>
 
             <div class="text-sm mt-4 space-y-4">

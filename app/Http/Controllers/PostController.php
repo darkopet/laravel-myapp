@@ -9,7 +9,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Post2::latest()->firstWhere(request(['search','category', 'author']))->get()
+            'posts' => Post2::latest()->filter(request(['search','category', 'author']))->get()
         ]);
     }
 
