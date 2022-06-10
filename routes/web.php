@@ -23,5 +23,5 @@ Route::get('/', function(){
 
 Route::get('/posts', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{post:slug}', [PostController::class, 'show']); 
-Route::get('/posts/register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('/posts/register', [RegisterController::class, 'store'])->middleware('guest');
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');

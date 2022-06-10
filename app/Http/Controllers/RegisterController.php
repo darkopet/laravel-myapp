@@ -9,7 +9,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('/posts/register.create');
+        return view('register.create');
     }
 
     public function store()
