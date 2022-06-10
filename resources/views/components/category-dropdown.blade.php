@@ -11,7 +11,7 @@
         </button>
     </x-slot>
 
-    <x-dropdown-item href="/?{{ http_build_query(request()->except('category', 'page')) }}" 
+    <x-dropdown-item href="/posts/?{{ http_build_query(request()->except('category', 'page')) }}" 
                      :active="request()->routeIs('home')">
         All
     </x-dropdown-item>
