@@ -11,7 +11,6 @@ class Post2 extends Model
     use HasFactory;
     // protected $fillable = ['title', 'excerpt','body'];
     // protected $guarded = ['id'];
-    protected $guarded = [];
 
     protected $with = ['category', 'author'];
     
