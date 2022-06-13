@@ -66,3 +66,33 @@
         @yield('content')  
      {{ $slot }}   
 </body> -->
+
+
+Route::post('newsletter', function () {
+
+request()->validate(['email' => 'required|email']);
+
+$mailchimp = new \MailchimpMarketing\ApiClient();
+
+$mailchimp->setConfig([
+    'apiKey' => config('services.mailchimp.key'),
+    'server' => 'us10'
+]);
+
+// $response = $mailchimp->ping->get();
+// $response = $client->lists->getAllLists();
+// $response = $mailchimp->lists->getList('bde42efd69');
+// $response = $mailchimp->lists->getListMembersInfo('bde42efd69');
+try {
+    $response = $mailchimp->lists->addListMember('bde42efd69', [
+        'email_address' => request('email'),
+        'status' => 'subscribed'
+    ]); 
+} catch (\Exception $e) {
+    throw \Illuminate\Validation\ValidationException::withMessages([
+        'email' => "Email provided is not valid."
+    ]);
+}
+
+return redirect('/posts')->with('success', 'You are now signed up for our newsletter!');
+});
