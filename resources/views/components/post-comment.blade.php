@@ -18,5 +18,6 @@
                     {{ $comment->body }}
                 </p>
             </div>
+            
         </article>
     </x-panel>

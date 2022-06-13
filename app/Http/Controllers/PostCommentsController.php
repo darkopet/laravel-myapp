@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post2;
-use App\Models\User;
+
 
 class PostCommentsController extends Controller
 {
@@ -22,5 +22,4 @@ class PostCommentsController extends Controller
         // REDIRECT to previous page
         return back();
     }
-
 }
