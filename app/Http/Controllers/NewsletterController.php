@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Services\Newsletter;
 use Exception;
 use Illuminate\Validation\ValidationException;
-use MailchimpMarketing\ApiClient;
 
 class NewsletterController extends Controller
 {
