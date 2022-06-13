@@ -13,7 +13,6 @@
                     <time>{{ $comment->created_at }}</time>
                 </p>
             </header>
-
             <p>
                 {{ $comment->body }}
             </p>

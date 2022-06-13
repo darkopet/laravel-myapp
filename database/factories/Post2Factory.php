@@ -17,6 +17,7 @@ class Post2Factory extends Factory
      *
      * @return array
      */
+    
     public function definition()
     {
         return [

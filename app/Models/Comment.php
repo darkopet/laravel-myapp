@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Post2;
 
 class Comment extends Model
 {
@@ -11,7 +12,7 @@ class Comment extends Model
     
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post2::class);
     }
 
     public function author()

@@ -57,4 +57,5 @@ class Post2 extends Model
     {
         return $this->belongsTo(User::class, 'user_id'); // ELOQUENT Model RELATIONSHIP METHOD
     }
+    
 }
