@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
+use App\Models\User;
+
 
 class SessionsController extends Controller
 {
@@ -18,7 +20,6 @@ class SessionsController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
         // AUTHENTICATION & LOGIN THE USER attempt
         if (! auth()->attempt($attributes)) {
              // AUTHENTICATION FAILED
