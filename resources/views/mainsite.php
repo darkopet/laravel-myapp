@@ -68,7 +68,7 @@
 </body> -->
 
 
-Route::post('newsletter', function () {
+<!-- Route::post('newsletter', function () {
 
 request()->validate(['email' => 'required|email']);
 
@@ -95,4 +95,4 @@ try {
 }
 
 return redirect('/posts')->with('success', 'You are now signed up for our newsletter!');
-});
+}); -->
