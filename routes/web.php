@@ -36,7 +36,9 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::get('ping', function () {
+Route::post('newsletter', function () {
+
+    request()->validate(['email' => 'required|email']);
 
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
@@ -49,9 +51,16 @@ Route::get('ping', function () {
     // $response = $client->lists->getAllLists();
     // $response = $mailchimp->lists->getList('bde42efd69');
     // $response = $mailchimp->lists->getListMembersInfo('bde42efd69');
-    $response = $mailchimp->lists->addListMember('bde42efd69', [
-        'email_address' => 'work@home.com',
-        'status' => 'subscribed'
-    ]);
-    ddd($response);
+    try {
+        $response = $mailchimp->lists->addListMember('bde42efd69', [
+            'email_address' => request('email'),
+            'status' => 'subscribed'
+        ]); 
+    } catch (\Exception $e) {
+        throw \Illuminate\Validation\ValidationException::withMessages([
+            'email' => "Email provided is not valid."
+        ]);
+    }
+
+    return redirect('/posts')->with('success', 'You are now signed up for our newsletter!');
 });
