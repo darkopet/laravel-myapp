@@ -12,7 +12,6 @@ class Post2 extends Model
     
     protected $fillable = ['title', 'excerpt','body','user_id','category_id', 'slug'];
     // protected $guarded = ['id'];
-    
     protected $with = ['category', 'author'];
     
     // public function getRouteKeyName()
