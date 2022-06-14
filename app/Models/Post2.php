@@ -10,8 +10,9 @@ class Post2 extends Model
 {
     use HasFactory;
     // protected $fillable = ['title', 'excerpt','body'];
+    
+    protected $fillable = ['title'];
     // protected $guarded = ['id'];
-
     protected $with = ['category', 'author'];
     
     // public function getRouteKeyName()

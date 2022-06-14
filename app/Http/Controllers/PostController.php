@@ -30,16 +30,20 @@ class PostController extends Controller
     {
         $attributes = request()->validate([
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
+            'slug' => ['required', Rule::unique('post2s', 'slug')],
             'excerpt' => 'required',
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
 
         $attributes['user_id'] = auth()->id();
-
+        
+        echo "<pre>";
+        var_dump($attributes);
+        echo "</pre>";
+        
         Post2::create($attributes);
 
-        return redirect('/');
+        return redirect('/posts');
     }
 }
