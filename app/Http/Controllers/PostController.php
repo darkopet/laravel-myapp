@@ -37,11 +37,7 @@ class PostController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-        
-        echo "<pre>";
-        var_dump($attributes);
-        echo "</pre>";
-        
+
         Post2::create($attributes);
 
         return redirect('/posts');
