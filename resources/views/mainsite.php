@@ -67,7 +67,6 @@
      {{ $slot }}   
 </body> -->
 
-
 Route::post('newsletter', function () {
 
 request()->validate(['email' => 'required|email']);
