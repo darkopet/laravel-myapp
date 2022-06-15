@@ -23,7 +23,7 @@ class MustBeAdministrator
         {
             abort(Response::HTTP_FORBIDDEN);
         }
-        if(auth()->user()->username != 'Home')
+        if(auth()->user()->username != 'darkopet')
         {
             abort(Response::HTTP_FORBIDDEN);
         }
