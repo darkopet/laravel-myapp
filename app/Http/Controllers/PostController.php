@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post2;
 use Illuminate\Validation\Rule;
 
+
 class PostController extends Controller
 {
     public function index()
