@@ -22,27 +22,27 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return view('posts.create');
-    }
+    // public function create()
+    // {
+    //     return view('posts.create');
+    // }
 
-    public function store()
-    {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('post2s', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
+    // public function store()
+    // {
+    //     $attributes = request()->validate([
+    //         'title' => 'required',
+    //         'thumbnail' => 'required|image',
+    //         'slug' => ['required', Rule::unique('post2s', 'slug')],
+    //         'excerpt' => 'required',
+    //         'body' => 'required',
+    //         'category_id' => ['required', Rule::exists('categories', 'id')]
+    //     ]);
 
-        $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+    //     $attributes['user_id'] = auth()->id();
+    //     $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
-        Post2::create($attributes);
+    //     Post2::create($attributes);
 
-        return redirect('/posts');
-    }
+    //     return redirect('/posts');
+    // }
 }
