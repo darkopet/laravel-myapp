@@ -3,7 +3,7 @@
 namespace App\Services;
 
 
-interface Newsletter
+class Newsletter
 {
-    public function subscribe(string $email, string $list = null);
+    public function subscribe(string $email, string $list = null){}
 }
