@@ -10,7 +10,7 @@ class AdminPostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post2::paginate(50)
+            'posts' => Post2::paginate(100)
         ]);
     }
 
@@ -24,7 +24,7 @@ class AdminPostController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
+            'slug' => ['required', Rule::unique('post2s', 'slug')],
             'excerpt' => 'required',
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')]
@@ -35,7 +35,7 @@ class AdminPostController extends Controller
 
         Post2::create($attributes);
 
-        return redirect('/');
+        return redirect('/posts');
     }
 
     public function edit(Post2 $post)

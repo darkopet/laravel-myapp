@@ -23,7 +23,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <form method="POST" action="/posts/admin/{{ $post->id }}">
+                                        <form method="POST" action="/posts/{{ $post->id }}">
                                             @csrf
                                             @method('DELETE')
 
