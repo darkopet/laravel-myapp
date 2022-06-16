@@ -20,11 +20,18 @@ class AdminPostController extends Controller
     }
 
     public function store()
-    {
-        Post2::create(array_merge($this->validatePost(), [
-            'user_id' => request()->user()->id,
-            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
-        ]));
+    {   
+        // dd($this);
+        $attributes = array_merge($this->validatePost(), [
+                'user_id' => request()->user()->id,
+                'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+            ]);
+        // dd($attributes);
+        // Post2::create(array_merge($this->validatePost(), [
+        //     'user_id' => request()->user()->id,
+        //     'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        // ]));
+        Post2::create($attributes);
         return redirect('/posts');
     }
 
