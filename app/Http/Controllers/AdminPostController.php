@@ -21,15 +21,20 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        Post2::create(array_merge($this->validatePost(), [
+        $attributes = array_merge($this->validatePost(), [
             'user_id' => request()->user()->id,
             'thumbnail' => request()->file('thumbnail')->store('thumbnails')
-        ]));
+        ]);
+        // Post2::create(array_merge($this->validatePost(), [
+        //     'user_id' => request()->user()->id,
+        //     'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        // ]));
+        Post2::create($attributes);
         return redirect('/posts');
     }
 
     public function edit(Post2 $post)
-    {
+    {   
         return view('admin.posts.edit', ['post' => $post]);
     }
 
@@ -37,7 +42,8 @@ class AdminPostController extends Controller
     {
         $attributes = $this->validatePost($post);
 
-        if ($attributes['thumbnail'] ?? false) {
+        if (isset($attributes['thumbnail']))  // ?? false)
+        {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         }
 
