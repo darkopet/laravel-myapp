@@ -11,7 +11,7 @@
 
             <ul>
                 <li>
-                    <a href="/admin" class="{{ request()->is('admin') ? 'text-blue-500' : '' }}">Dashboard</a>
+                    <a href="/admin/dashboard" class="{{ request()->is('admin') ? 'text-blue-500' : '' }}">Dashboard</a>
                 </li>
 
                 <li>
