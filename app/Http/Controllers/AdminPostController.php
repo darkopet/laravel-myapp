@@ -62,6 +62,7 @@ class AdminPostController extends Controller
     protected function validatePost(?Post2 $post = null): array
     {
         $post ??= new Post2();
+        dd($post);
 
         return request()->validate([
             'title' => 'required',
