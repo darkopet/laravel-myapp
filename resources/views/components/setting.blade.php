@@ -11,11 +11,11 @@
 
             <ul>
                 <li>
-                    <a href="/admin/dashboard" class="{{ request()->is('admin') ? 'text-blue-500' : '' }}">Dashboard</a>
+                    <a href="/admin/posts" class="{{ request()->is('admin') ? 'text-blue-500' : '' }}">Dashboard</a>
                 </li>
 
                 <li>
-                    <a href="/admin/create" class="{{ request()->is('/admin/create') ? 'text-blue-500' : '' }}">New Post</a>
+                    <a href="/admin/posts/create" class="{{ request()->is('/admin/create') ? 'text-blue-500' : '' }}">New Post</a>
                 </li>
             </ul>
         </aside>
