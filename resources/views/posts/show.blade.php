@@ -35,7 +35,7 @@
                         </a>
 
                         <div class="space-x-2">
-                            <x-category-button :category="$post->category"/>
+                            <x-category-button :category="$post->category" />
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                     @include ('posts._add-comment-form')
 
                     @foreach ($post->comments as $comment)
-                        <x-post-comment :comment="$comment"/>
+                    <x-post-comment :comment="$comment" />
                     @endforeach
                 </section>
             </article>
