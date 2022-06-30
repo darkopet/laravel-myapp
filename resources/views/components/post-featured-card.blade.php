@@ -7,6 +7,7 @@
         </div>
 
         <div class="flex-1 flex flex-col justify-between">
+            
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
                     <!-- <a href="/posts?category={{ $post->category->slug }}" 
@@ -16,7 +17,6 @@
                     </a> -->
                     <x-category-button :category="$post->category" />
                 </div>
-
                 <div class="mt-4">
                     <h1 class="text-3xl">
                         <a href="/posts/{{ $post['slug'] }}">
@@ -50,6 +50,7 @@
                     </a>
                 </div>
             </footer>
+
         </div>
     </div>
 </article>
